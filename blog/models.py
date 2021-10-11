@@ -10,7 +10,7 @@ class Post(models.Model):
         ('Изменено', 'Изменено'),
         ('Отменено', 'Отмененно'),
     )
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=False, default='Ioann', on_delete=models.CASCADE)
     status = models.CharField(max_length=300, choices = CHOICES, blank=False, default='Отправлено')
     title = models.CharField(max_length=200)
     text = models.TextField()
